@@ -9,6 +9,10 @@ from datetime import datetime
 from venv import logger
 
 import pandas as pd
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+from sklearn.pipeline import make_pipeline
 
 
 def read_dataframe(run_date: datetime, filename: str) -> pd.DataFrame:
@@ -89,7 +93,7 @@ def ride_duration_prediction(
 
 
 def run():
-    taxi_type = sys.argv[1]  # 'yellow'
+    taxi_type = sys.argv[1]  # yellow
     year = int(sys.argv[2])  # 2023
     month = int(sys.argv[3])  # 3
 
